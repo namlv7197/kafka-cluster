@@ -127,3 +127,53 @@ Create kafka-broker-2 and kafka-broker 3 instances and update ```num.paritions=3
 - kafka-broker-3:
   - Public IPv4 address: 54.254.228.131
   - Private IPv4 addresses: 10.10.2.7
+
+## Producer
+```
+from confluent_kafka import Producer
+import json
+
+p = Producer({'bootstrap.servers': '54.179.7.184:9092,54.151.183.113:9092,54.254.228.131:9092'})
+
+def delivery_report(err, msg):
+    """ Called once for each message produced to indicate delivery result.
+        Triggered by poll() or flush(). """
+    if err is not None:
+        print('Message delivery failed: {}'.format(err))
+    else:
+        print('Message delivered to topic: {} at partition: {}'.format(msg.topic(), msg.partition()))
+
+data=json.dumps({'sentence':'This is the sentence'})
+    
+p.produce('test-topic', value=data, callback=delivery_report)
+
+p.flush()
+```
+
+## Consumer
+```
+from confluent_kafka import Consumer
+import json
+
+c = Consumer({
+    'bootstrap.servers': '54.179.7.184:9092,54.151.183.113:9092,54.254.228.131:9092',
+    'group.id': 'test',
+    'auto.offset.reset': 'earliest'
+})
+
+c.subscribe(['test-topic'])
+
+while True:
+    msg = c.poll(1.0)
+
+    if msg is None:
+        continue
+    if msg.error():
+        print("Consumer error: {}".format(msg.error()))
+        continue
+    msg=msg.value().decode('utf-8')
+    msg=json.loads(msg)
+    print('Received message: {}'.format(msg))
+
+c.close()
+```
