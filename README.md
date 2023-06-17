@@ -2,6 +2,9 @@
 Create Kafka cluster with 3 nodes on AWS
 
 Author: Le Viet Nam
+
+Note: This is a simple Kafka cluster configuration
+
 ## Create Zookeeper server
 ### Create Zookeeper VPC
 - IPv4 CIDR: 10.10.1.0/24
