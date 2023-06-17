@@ -6,7 +6,7 @@ Create Kafka cluster with 3 nodes on AWS
 
 ### Create Zookeeper Subnet
 - Subnet name: kafka-zookeeper
-- IPv4 CIDR block: 10.10.1.0/28 (addresses in range 0 -> 31
+- IPv4 CIDR block: 10.10.1.0/28 (addresses in range 0 -> 31)
 
 Notes: Rememeber to create Internet gateway named "zookeeper-igw" for Zookeeper VPC and attach it. Then add "zookeeper-igw" to Zookeeper Subnet Route tables.
 ### Launch Zookeeper instance for Kafka cluster
@@ -34,4 +34,26 @@ wget https://dlcdn.apache.org/zookeeper/zookeeper-3.8.1/apache-zookeeper-3.8.1-b
 tar -xvf apache-zookeeper-3.8.1-bin.tar.gz
 mv apache-zookeeper-3.8.1-bin zookeeper
 ```
+Replace zoo_sample.cfg to zoo.cfg
+```
+cd /home/ubuntu/zookeeper
+mv conf/zoo_sample.cfg conf/zoo.cfg
+sed -i '$aserver.1=10.10.4.6:2888:3888' conf/zoo.cfg
+```
+Install Java 8
+```
+sudo apt-get update
+sudo apt install openjdk-8-jdk -y
+```
 ## Create Kafka cluster
+### Create Kafka VPC
+- IPv4 CIDR: 10.10.2.0/24
+
+### Create Kafka Subnet
+- Subnet name: kafka-zookeeper
+- IPv4 CIDR block: 10.10.2.0/28 (addresses in range 0 -> 31)
+
+Notes: Rememeber to create Internet gateway named "kafka-igw" for Kafka VPC and attach it. Then add "kafka-igw" to Zookeeper Subnet Route tables.
+
+### Launch Kafka instance
+
