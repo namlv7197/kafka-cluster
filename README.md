@@ -16,4 +16,15 @@ Amazon Machine Image             |  Network settings
 Assumption:
 - Public IPv4 address: 54.254.152.12
 - Private IPv4 addresses: 10.10.1.4
+### Configure Zookeeper instance
+Modify /etc/ssh/sshd_config
+```
+sudo sed -i 's/#PermitRootLogin prohibit-password/PermitRootLogin yes/g' /etc/ssh/sshd_config
+sudo sed -i 's/PasswordAuthentication no/PasswordAuthentication yes/g' /etc/ssh/sshd_config
+sudo systemctl restart sshd
+```
+Add password for root user
+```
+sudo passwd root
+```
 ## Create Kafka cluster
