@@ -119,3 +119,8 @@ sudo nano /etc/systemd/system/kafka.service
 sudo systemctl enable kafka.service
 sudo systemctl start kafka.service
 ```
+
+Create kafka-broker-2 and kafka-broker 3 instances
+- kafka-broker-2:
+  - Public IPv4 address: 54.151.183.113
+  - Private IPv4 addresses: 10.10.2.11
