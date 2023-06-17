@@ -83,10 +83,22 @@ mv kafka_2.13-3.5.0 kafka
 Modify config/server.properties
 ```
 cd /home/ubuntu/kafka
-zookeeper.connect=localhost:2181
-sudo sed -i 's/zookeeper.connect=localhost:2181/zookeeper.connect=10.10.1.4:2181/g' config/server.properties
+sed -i 's/zookeeper.connect=localhost:2181/zookeeper.connect=10.10.1.4:2181/g' config/server.properties
 sed -i '$alisteners=INTERNAL://0.0.0.0:19092,EXTERNAL://0.0.0.0:9092' config/server.properties
 sed -i '$alistener.security.protocol.map=INTERNAL:PLAINTEXT,EXTERNAL:PLAINTEXT' config/server.properties
 sed -i '$aadvertised.listeners=INTERNAL://10.10.1.4,EXTERNAL://54.179.7.184:9092' config/server.properties
 sed -i '$alisteners=INTERNAL://0.0.0.0:19092,EXTERNAL://0.0.0.0:9092' config/server.properties
 ```
+Install Java 8
+```
+sudo apt-get update
+sudo apt install openjdk-8-jdk -y
+```
+### Start Kafka server
+- Create Peering connections between Kafka VPC and Zookeeper VPC named "kafka-zookeeper"
+- Add "kafka-zookeeper" to Kakfa Route tables with destination 10.10.1.0/24
+- Add "kafka-zookeeper" to Zookeeper Route tables with destination 10.10.2.0/24
+- Add inbound rules to Kafka security group
+  - All TCP with source 10.10.1.0/28
+  - All ICMP - IPv4 with source 10.10.1.0/28
+
