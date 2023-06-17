@@ -94,7 +94,7 @@ Install Java 8
 sudo apt-get update
 sudo apt install openjdk-8-jdk -y
 ```
-### Start Kafka server
+### Start Zookeeper server and Kafka server
 - Create Peering connections between Kafka VPC and Zookeeper VPC named "kafka-zookeeper"
 - Add "kafka-zookeeper" to Kakfa Route tables with destination 10.10.1.0/24
 - Add "kafka-zookeeper" to Zookeeper Route tables with destination 10.10.2.0/24
@@ -104,4 +104,10 @@ sudo apt install openjdk-8-jdk -y
 - Add inbound rules to kafka-zookeeper security group
   - All TCP with source 10.10.2.0/28
   - All ICMP - IPv4 with source 10.10.2.0/28
-
+#### Start Zookeeper at kafka-zookeeper instance
+Create kafka_zookeeper.service [Example](https://github.com/namlv7197/kafka-cluster/blob/main/kafka_zookeeper.service)
+```
+sudo nano /etc/systemd/system/kafka_zookeeper.service
+sudo systemctl enable kafka_zookeeper.service
+sudo systemctl start kafka_zookeeper.service
+```
