@@ -88,6 +88,7 @@ sed -i '$alisteners=INTERNAL://0.0.0.0:19092,EXTERNAL://0.0.0.0:9092' config/ser
 sed -i '$alistener.security.protocol.map=INTERNAL:PLAINTEXT,EXTERNAL:PLAINTEXT' config/server.properties
 sed -i '$aadvertised.listeners=INTERNAL://10.10.2.4:19092,EXTERNAL://54.179.7.184:9092' config/server.properties
 sed -i '$alisteners=INTERNAL://0.0.0.0:19092,EXTERNAL://0.0.0.0:9092' config/server.properties
+sed -i '$ainter.broker.listener.name=INTERNAL' config/server.properties
 ```
 Install Java 8
 ```
