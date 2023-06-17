@@ -62,4 +62,14 @@ Amazon Machine Image             |  Network settings
 Assumption:
 - Public IPv4 address: 54.179.7.184
 - Private IPv4 addresses: 10.10.2.4
-
+### Configure Kafka broker instance
+Modify /etc/ssh/sshd_config
+```
+sudo sed -i 's/#PermitRootLogin prohibit-password/PermitRootLogin yes/g' /etc/ssh/sshd_config
+sudo sed -i 's/PasswordAuthentication no/PasswordAuthentication yes/g' /etc/ssh/sshd_config
+sudo systemctl restart sshd
+```
+Add password for root user
+```
+sudo passwd root
+```
