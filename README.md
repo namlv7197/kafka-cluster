@@ -112,3 +112,10 @@ sudo nano /etc/systemd/system/kafka_zookeeper.service
 sudo systemctl enable kafka_zookeeper.service
 sudo systemctl start kafka_zookeeper.service
 ```
+#### Start Kafka at kafka-broker-1 instance
+Create kafka.service [Example](https://github.com/namlv7197/kafka-cluster/blob/main/kafka.service)
+```
+sudo nano /etc/systemd/system/kafka.service
+sudo systemctl enable kafka.service
+sudo systemctl start kafka.service
+```
