@@ -13,4 +13,7 @@ Notes: Rememeber to create Internet gateway named "zookeeper-igw" for Zookeeper 
 Amazon Machine Image             |  Network settings
 :-------------------------:|:-------------------------:
 ![](https://github.com/namlv7197/kafka-cluster/blob/main/kafka-zookeeper-ami.png)  |  ![](https://github.com/namlv7197/kafka-cluster/blob/main/kafka-zookeeper-networks.png)
+Assumption:
+- Public IPv4 address: 54.254.152.12
+- Private IPv4 addresses: 10.10.1.4
 ## Create Kafka cluster
