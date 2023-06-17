@@ -27,4 +27,11 @@ Add password for root user
 ```
 sudo passwd root
 ```
+Download [Zookeeper](https://dlcdn.apache.org/zookeeper/zookeeper-3.8.1/apache-zookeeper-3.8.1-bin.tar.gz) and extract it
+```
+cd /home/ubuntu/
+wget https://dlcdn.apache.org/zookeeper/zookeeper-3.8.1/apache-zookeeper-3.8.1-bin.tar.gz
+tar -xvf apache-zookeeper-3.8.1-bin.tar.gz
+mv apache-zookeeper-3.8.1-bin zookeeper
+```
 ## Create Kafka cluster
