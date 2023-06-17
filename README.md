@@ -98,7 +98,10 @@ sudo apt install openjdk-8-jdk -y
 - Create Peering connections between Kafka VPC and Zookeeper VPC named "kafka-zookeeper"
 - Add "kafka-zookeeper" to Kakfa Route tables with destination 10.10.1.0/24
 - Add "kafka-zookeeper" to Zookeeper Route tables with destination 10.10.2.0/24
-- Add inbound rules to Kafka security group
+- Add inbound rules to kafka-broker-1 security group
   - All TCP with source 10.10.1.0/28
   - All ICMP - IPv4 with source 10.10.1.0/28
+- Add inbound rules to kafka-zookeeper security group
+  - All TCP with source 10.10.2.0/28
+  - All ICMP - IPv4 with source 10.10.2.0/28
 
