@@ -1,5 +1,6 @@
 # Create Kafka cluster on AWS
 Create Kafka cluster with 3 nodes on AWS
+
 Author: Le Viet Nam
 ## Create Zookeeper server
 ### Create Zookeeper VPC
