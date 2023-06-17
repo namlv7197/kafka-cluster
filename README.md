@@ -55,5 +55,11 @@ sudo apt install openjdk-8-jdk -y
 
 Notes: Rememeber to create Internet gateway named "kafka-igw" for Kafka VPC and attach it. Then add "kafka-igw" to Zookeeper Subnet Route tables.
 
-### Launch Kafka instance
+### Launch Kafka broker 1 instance
+Amazon Machine Image             |  Network settings
+:-------------------------:|:-------------------------:
+![](https://github.com/namlv7197/kafka-cluster/blob/main/kafka-broker-1-ami.png)  |  ![](https://github.com/namlv7197/kafka-cluster/blob/main/kafka-broker-1-networks.png)
+Assumption:
+- Public IPv4 address: 54.179.7.184
+- Private IPv4 addresses: 10.10.2.4
 
