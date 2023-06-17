@@ -7,7 +7,7 @@ Create Kafka cluster with 3 nodes on AWS
 
 Download [Zookeeper](https://www.apache.org/dyn/closer.lua/zookeeper/zookeeper-3.8.1/apache-zookeeper-3.8.1-bin.tar.gz)
 
-###Create Zookeeper Internet gateway
+### Create Zookeeper Internet gateway
 
 ![alt text](https://github.com/namlv7197/kafka-cluster/blob/main/zookeeper-igw.png)
 
