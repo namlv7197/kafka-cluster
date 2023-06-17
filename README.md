@@ -1,7 +1,6 @@
 # Create Kafka cluster on AWS
-author: Le Viet Nam
-
 Create Kafka cluster with 3 nodes on AWS
+Author: Le Viet Nam
 ## Create Zookeeper server
 ### Create Zookeeper VPC
 - IPv4 CIDR: 10.10.1.0/24
