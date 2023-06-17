@@ -180,3 +180,5 @@ while True:
 
 c.close()
 ```
+## Todo
+- Add security configuration
