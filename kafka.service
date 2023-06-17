@@ -1,0 +1,14 @@
+[Unit]
+Description=kafka
+
+[Service]
+User=root
+Type=simple
+Environment="JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-amd64"
+Environment="KAFKA_HEAP_OPTS=-Xmx256M -Xms256M"
+WorkingDirectory=/home/ubuntu/kafka
+ExecStart=/home/ubuntu/kafka/bin/kafka-server-start.sh config/server.properties
+ExecStop=/home/ubuntu/kafka/bin/kafka-server-stop.sh
+
+[Install]
+WantedBy=multi-user.target
