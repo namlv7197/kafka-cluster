@@ -1,5 +1,5 @@
 # Create Kafka cluster on AWS
-Create Kafka cluster with 3 nodes on AWS (Kafka cluster is shutting down)
+Create Kafka cluster with 3 nodes on AWS (Kafka cluster terminated for lack of money)
 
 Author: Le Viet Nam
 
