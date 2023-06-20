@@ -136,7 +136,7 @@ Create kafka-broker-2 and kafka-broker 3 instances and update ```num.paritions=3
 from confluent_kafka import Producer
 import json
 
-p = Producer({'bootstrap.servers': '54.179.7.184:9092,54.151.183.113:9092,54.254.228.131:9092'})
+p = Producer({'bootstrap.servers': '54.255.215.10:9092,13.212.251.13:9092,13.212.207.232:9092'})
 
 def delivery_report(err, msg):
     """ Called once for each message produced to indicate delivery result.
@@ -159,7 +159,7 @@ from confluent_kafka import Consumer
 import json
 
 c = Consumer({
-    'bootstrap.servers': '54.179.7.184:9092,54.151.183.113:9092,54.254.228.131:9092',
+    'bootstrap.servers': '54.255.215.10:9092,13.212.251.13:9092,13.212.207.232:9092',
     'group.id': 'test',
     'auto.offset.reset': 'earliest'
 })
