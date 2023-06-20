@@ -20,7 +20,7 @@ Amazon Machine Image             |  Network settings
 ![](https://github.com/namlv7197/kafka-cluster/blob/main/kafka-zookeeper-ami.png)  |  ![](https://github.com/namlv7197/kafka-cluster/blob/main/kafka-zookeeper-networks.png)
 Assumption:
 - Public IPv4 address: 54.254.152.12
-- Private IPv4 addresses: 10.10.1.4
+- Private IPv4 addresses: 10.10.1.7
 ### Configure Zookeeper instance
 Modify /etc/ssh/sshd_config
 ```
@@ -64,7 +64,7 @@ Amazon Machine Image             |  Network settings
 :-------------------------:|:-------------------------:
 ![](https://github.com/namlv7197/kafka-cluster/blob/main/kafka-broker-1-ami.png)  |  ![](https://github.com/namlv7197/kafka-cluster/blob/main/kafka-broker-1-networks.png)
 Assumption:
-- Public IPv4 address: 54.179.7.184
+- Public IPv4 address: 54.255.215.10
 - Private IPv4 addresses: 10.10.2.4
 ### Configure Kafka broker instance
 Modify /etc/ssh/sshd_config
@@ -87,10 +87,10 @@ mv kafka_2.13-3.5.0 kafka
 Modify config/server.properties
 ```
 cd /home/ubuntu/kafka
-sed -i 's/zookeeper.connect=localhost:2181/zookeeper.connect=10.10.1.4:2181/g' config/server.properties
+sed -i 's/zookeeper.connect=localhost:2181/zookeeper.connect=10.10.1.7:2181/g' config/server.properties
 sed -i '$alisteners=INTERNAL://0.0.0.0:19092,EXTERNAL://0.0.0.0:9092' config/server.properties
 sed -i '$alistener.security.protocol.map=INTERNAL:PLAINTEXT,EXTERNAL:PLAINTEXT' config/server.properties
-sed -i '$aadvertised.listeners=INTERNAL://10.10.2.4:19092,EXTERNAL://54.179.7.184:9092' config/server.properties
+sed -i '$aadvertised.listeners=INTERNAL://10.10.2.4:19092,EXTERNAL://54.255.215.10:9092' config/server.properties
 sed -i '$ainter.broker.listener.name=INTERNAL' config/server.properties
 ```
 Install Java 8
@@ -125,11 +125,11 @@ sudo systemctl start kafka.service
 
 Create kafka-broker-2 and kafka-broker 3 instances and update ```num.paritions=3``` and ```offsets.topic.replication.factor=3``` per each broker
 - kafka-broker-2:
-  - Public IPv4 address: 54.151.183.113
-  - Private IPv4 addresses: 10.10.2.11
+  - Public IPv4 address: 13.212.251.13
+  - Private IPv4 addresses: 10.10.2.13
 - kafka-broker-3:
-  - Public IPv4 address: 54.254.228.131
-  - Private IPv4 addresses: 10.10.2.7
+  - Public IPv4 address: 13.212.207.232
+  - Private IPv4 addresses: 10.10.2.10
 
 ## Producer
 ```
